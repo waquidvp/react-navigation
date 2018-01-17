@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import { Animated, StyleSheet } from 'react-native';
+import { Animated, StyleSheet, View } from 'react-native';
 import { TabBar } from 'react-native-tab-view';
 import TabBarIcon from './TabBarIcon';
 
@@ -141,13 +141,15 @@ export default class TabBarTop extends React.PureComponent<Props> {
     const props: any = this.props;
 
     return (
-      <TabBar
-        {...props}
-        onTabPress={this._handleOnPress}
-        jumpToIndex={() => {}}
-        renderIcon={this._renderIcon}
-        renderLabel={this._renderLabel}
-      />
+      <View style={styles.tabBarContainer} >
+        <TabBar
+          {...props}
+          onTabPress={this._handleOnPress}
+          jumpToIndex={() => {}}
+          renderIcon={this._renderIcon}
+          renderLabel={this._renderLabel}
+        />
+      </View>
     );
   }
 }
@@ -162,5 +164,8 @@ const styles = StyleSheet.create({
     fontSize: 13,
     margin: 8,
     backgroundColor: 'transparent',
+  },
+  tabBarContainer: {
+    alignItems: 'center',
   },
 });
