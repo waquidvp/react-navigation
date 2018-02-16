@@ -8,7 +8,7 @@ import { SafeAreaView, StackNavigator } from 'react-navigation';
 import SampleText from './SampleText';
 
 const MyNavScreen = ({ navigation, banner }) => (
-  <ScrollView contentInsetAdjustmentBehavior="automatic">
+  <ScrollView>
     <SafeAreaView
       forceInset={{
         top: navigation.state.routeName === 'HeaderTest' ? 'always' : 'never',
@@ -69,8 +69,9 @@ const ProfileNavigator = StackNavigator(
   },
   {
     navigationOptions: {
-      header: null,
+      headerLeft: null,
     },
+    mode: 'modal',
   }
 );
 
@@ -88,15 +89,15 @@ MyHeaderTestScreen.navigationOptions = ({ navigation }) => {
 
 const ModalStack = StackNavigator(
   {
-    Home: {
-      screen: MyHomeScreen,
-    },
     ProfileNavigator: {
       screen: ProfileNavigator,
     },
     HeaderTest: { screen: MyHeaderTestScreen },
   },
   {
+    navigationOptions: {
+      header: null,
+    },
     mode: 'modal',
   }
 );

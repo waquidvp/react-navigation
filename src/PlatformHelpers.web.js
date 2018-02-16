@@ -1,13 +1,3 @@
-/* @flow */
+import { BackHandler } from 'react-native';
 
-export const Linking = {
-  addEventListener: () => {},
-  removeEventListener: () => {},
-  getInitialURL: (() => Promise.reject('Unsupported platform'): () => Promise<
-    string
-  >),
-};
-
-export const BackHandler = {
-  addEventListener: () => {},
-};
+export { BackHandler };
